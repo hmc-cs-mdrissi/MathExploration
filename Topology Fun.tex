@@ -1,0 +1,148 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+{\title{\textbf{Playing Around with Topology}}}
+\author{Mehdi Drissi}
+\date{}
+\allowdisplaybreaks
+
+\begin{document}
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\begin{center}
+\section{Definitions}
+\end{center}
+
+\subsection{Weakly Disconnected}
+Let $(X,\tau)$ be a topological space. Then, $(X,\tau)$ will be called $\textbf{weakly disconnected}$ if there exists an an open, non-empty, totally disconnected set.\\
+
+\subsection{Open-Lacking, Partially Connected}
+Let $(X, \tau)$ be a topological space. Then, $(X, \tau)$ will be called $\textbf{open-lacking, partially connected}$ if there exists a set with empty interior, but is not totally disconnected.\\
+
+
+\subsection{Interval in the Reals}
+An interval in the reals can in 9 possible forms. They are,\\
+
+\begin{itemize}
+\item $(a,b)$
+\item $[a,b]$
+\item $[a,b)$
+\item $(a,b]$
+\item $(-\infty,a)$
+\item $(-\infty,a]$
+\item $(a,\infty)$
+\item $[a,\infty)$
+\item $\mathbb{R}$
+\end{itemize}
+
+
+\newpage
+
+\section{Conjectures}
+\subsection{Strengthening Lemma 1}
+Can the first lemma be re-written to be,\\
+
+Let $(X,\tau)$ be a locally connected space that is not the topology on a one point set. Then $(X,\tau)$ is not weakly disconnected.\\
+
+Comments: I know T1-ness is not really necessary (Lemma 3.2). As $U$ was totally disconnected, I knew that A was closed in $U$. The issue was knowing that $A$ was closed in $X$. While a closed set relative to an open subspace, does not have to be closed in the original space, my intuition is that the extra knowledge that $U$ is totally disconnected could be helpful. And honestly, locally connected feels at the heart of the issue of weakly disconnected based on examining why $\mathbb{R}$ with the usual topology is not weakly disconnected. I'm not confident connected is not needed, though.
+
+\subsection{General Conjecture 1}
+Let $f: (X,\tau) \to (\mathbb{R},\rho)$ be a continuous function from the topological space $(X,\tau)$ to the reals with the standard topology. Fully characterize the types of sets that can be the preimage of an interval.\\
+
+Comments: My current thoughts are that the characterization is any set that is the intersection of a dense set with empty interior and an open set. For some domain spaces, the empty interior condition should be replaceable with totally disconnected (although what those spaces are is its own problem).
+
+\subsection{General Conjecture 2}
+Fully characterize weakly disconnected spaces.\\
+
+Comments: While I currently have a sufficient condition for a space to not be weakly disconnected, I know that it is not a necessary condition. Lemma 3.2 reveals that being T1 is not necessary to not be weakly disconnected.
+
+\subsection{General Conjecture 3}
+Fully characterize open-lacking, partially connected spaces.\\
+
+Comments: This one I'm the least sure of. The issue here is that the you can find an example of an open-lacking, partially connected space if you consider $\mathbb{R}^2$ with the Euclidean metric (the x-axis is a connected set with empty interior). That a space can be open-lacking, partially connected even with a pretty nice space, it means you'll likely need some very strong conditions. Kind of shows how extremely nice the reals with the standard topology are.
+
+\subsection{Closed in Open, Totally Disconnected Subspace}
+Let $(X,\tau)$ be a locally connected topological space. Let $(U,\tau_U)$ be an open, totally disconnected subspace of $(X,\tau)$. Are closed sets in $U$ closed in $X$? \\
+
+Comment: I'm pretty undecided on the correct answer to this. I'm curious about it as it would be a step forward in a more important conjecture. And if it is false, it'd be nice to see a counterexample. I'm not sure the locally connectedness is even helpful and I'll likely start by thinking about how it could fail if we ignore the totally disconnected and locally connected aspects in the problem.
+
+\newpage
+
+\section{Lemmas}
+
+\subsection{Relationship between Connectivity and Weakly Disconnected}
+Let $(X,\tau)$ be a locally connected, connected, T1 space that is not the topology on a one point set. Then, $(X, \tau)$ is not weakly disconnected.\\
+
+Proof:\\
+
+The proof strategy will be to use proof by contrapositive. Let $(X, \tau)$ be a weakly disconnected space. Let $U$ be an open, non-empty totally disconnected set. Let $(U, \tau_U)$ be the subspace topology of $U$. As $U$ is totally disconnected and non-empty, its connected components are singletons.
+Here, we'll split the proof into two cases. Either all of its connected components are open or they there exists a connected component that is not open.\\
+
+If there exists a connected component that is not open then its connected components are not all open which means it is not locally connected. As locally connected is hereditary for open subspaces, $(X,\tau)$, can not be locally connected. \\
+
+If there exists a connected component that is open, call that component $A$. As $U$ is totally disconnected, $A$ must be a singleton. Since $U$ is open, any open set in $U$ is also open in $X$. This means $A$ is an open singleton in $X$. Now we break into another two cases.\\
+
+If $X$ is a T1 space, singletons are closed making $A$ a clopen set. Since $X$ is not a one point set, $A$ is a non-trivial clopen set. This means $(X,\tau)$ is not connected. \\
+
+The other possible situation is that $X$ is not a T1 space.\\
+
+In any case, $(X, \tau)$ can not simultaneously have the three properties of being locally connected, connected, and T1. This completes the proof.
+
+\subsection{T1 is not Necessary to not be Weakly Disconnected}
+There exist topological spaces $(X,\tau)$ such that they are not a T1 space, but are not weakly disconnected.\\
+
+Proof:\\
+
+The proof will be by a simple example. Let $X = \{1,2\}$ and let it have the trivial topology. Then, $(X,\tau)$ is not weakly disconnected while at the same time not being a T1 space.\\
+
+Comment: This theorem shows that the previous lemma's sufficient condition for a space not being weakly disconnected can not be a necessary condition. The example not only fails to be a T1 space, but isn't even a T0 space. Any space with the trivial topology (ignoring the one point space) can serve as an example of a space that is not weakly disconnected, but isn't T0. Interestingly, this example is still locally connected and connected.
+
+\subsection{Kernel of Continuous Functions to $ \mathbb{R}^n $}
+Let $f: (X,\tau) \to (\mathbb{R}^n,\rho)$ be a continuous function from the topological space $(X,\tau)$ to $\mathbb{R}^n$ with the usual Euclidean metric. Then, the kernel of $f$ is a closed set in $X$.\\
+
+Proof:\\
+
+The kernel of $f$ is $f^{-1}(\{\mathbf{0}\})$. As the set, $\{\mathbf{0}\}$, is closed in $(\mathbb{R}^n,\rho)$, the preimage must be closed because $f$ is a continuous function. This shows that the kernel is closed.
+
+\subsection{Lemma: Weakly Disconnected Property}
+A topological space is weakly disconnected if and only if the interior of a totally disconnected set need not be empty.\\
+
+Proof:\\
+
+We'll start by assuming the topological space is weakly disconnected. Then, there exists an open, non-empty, totally disconnected set $U$. The $Int(U) = U$ because $U$ is open. As $U$ is totally disconnected and non-empty, it serves as an example of a totally disconnected set whose interior is not empty.\\
+
+Now for the other direction, assume there exists a set $U$ that is totally disconnected and whose interior is not empty. Let $V = Int(U)$. Then, $V$ is an open set because the interior of any set is not open. $V$ is also totally disconnected because it is a subset of $U$ and any subset of a totally disconnected set is totally disconnected (since totally disconnected is a hereditary property). As the $Int(U)$ is not empty, $V$ is not empty. So, $V$ is an open, totally disconnected, non-empty set which shows that the space is weakly disconnected.\\
+
+Comment: This property was actually my original characterization of a weakly disconnected space. The open, totally disconnected, non-empty set version was discovered as an equivalent form of this property that is easier to actually play with.
+
+\newpage
+\section{Theorems}
+
+\newpage
+\section{Interesting Examples}
+
+
+\newpage
+\section{Temporary Lemmas/Theorems}
+The title refers to how these statements all currently lack a proof, but I do know of a proof somewhere. I'll add all their proofs and put them in the proper section later.
+
+\subsection{Any Closed Set can be Kernel of Continuous Function to $\mathbb{R}^n$}
+Let $(X,\tau)$ be a topological space and $C$ be a closed set of $X$. Then, there exists a continuous function $f: (X,\tau) \to (\mathbb{R}^n,\rho)$ whose kernel is $C$ and $(\mathbb{R}^n,\rho)$ refers to $\mathbb{R}^n$ with the usual Euclidean metric.\\
+
+
+\subsection{Lemma: Irrationals are not the Preimage of an\\ Interval}
+Let $f: (X,\tau) \to (\mathbb{R},\rho)$ be a continuous function from the topological space $(X,\tau)$ to the reals with the standard topology. Then, the irrationals can not be the preimage of any interval.\\
+
+
+\subsection{Lemma: Preimage of an Interval Failure}
+Let $f: (X,\tau) \to (\mathbb{R},\rho)$ be a continuous function from the topological space $(X,\tau)$ to the reals with the standard topology. Then, a dense set with empty interior intersected with an open set (all in $\mathbb{R}$ with the standard topology) can not be the preimage of any interval.\\
+
+Comment: There is one major thing I want to generalize in this. I want to use something more general than an interval in $\mathbb{R}$. My guess is to first look at an open ball in any metric space and see if the proof works (or where it fails). I'm curious whether I can extend the result in some way to a space that is not a metric space for the range or to see if I can use something a bit more general than an open ball in a metric space. The condition of empty interior is also a weird one that I'd like modified. That will probably occur as a corollary depending on how the other main conjectures go.
+
+\end{document}
